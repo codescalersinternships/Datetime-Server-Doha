@@ -8,10 +8,14 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func DateTime(c *gin.Context) {
-	fmt.Fprintln(c.Writer, time.Now().Format("Jan 02, 2006"))
 
-	fmt.Fprintln(c.Writer, time.Now().Format("3:04 PM"))
+func DateTime(c *gin.Context) {
+	if c.Request.Method != "GET" {
+		c.Status(http.StatusMethodNotAllowed)
+		return
+	}
+
+	fmt.Fprint(c.Writer, time.Now().Format(time.UnixDate))
 
 	c.Status(http.StatusOK)
 }

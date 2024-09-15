@@ -16,14 +16,6 @@ func ShutDown(server *http.Server) {
 	signalCh := make(chan os.Signal, 1)
 	signal.Notify(signalCh, syscall.SIGINT, syscall.SIGTERM)
 
-	// Start the server in a separate goroutine
-	go func() {
-		log.Printf("Server listening on %s\n", server.Addr)
-		if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-			log.Fatalf("listen: %s\n", err)
-		}
-	}()
-
 	// Wait for a signal to shutdown the server
 	sig := <-signalCh
 	log.Printf("Received signal: %v\n", sig)

@@ -6,10 +6,14 @@ import (
 	"time"
 )
 
-func DateTime(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, time.Now().Format("Jan 02, 2006"))
 
-	fmt.Fprintln(w, time.Now().Format("3:04 PM"))
+func DateTime(w http.ResponseWriter, r *http.Request) {
+	if r.Method != "GET" {
+		w.WriteHeader(http.StatusMethodNotAllowed)
+		return 
+	}
+
+	fmt.Fprint(w, time.Now().Format(time.UnixDate))
 
 	w.WriteHeader(http.StatusOK)
 }

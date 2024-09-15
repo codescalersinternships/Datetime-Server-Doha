@@ -2,7 +2,11 @@ module github.com/dohaelsawy/codescalers/datetimeserver
 
 go 1.21.0
 
-require github.com/gin-gonic/gin v1.10.0
+require (
+	github.com/gin-gonic/gin v1.10.0
+	github.com/go-playground/assert/v2 v2.2.0
+	github.com/magiconair/properties v1.8.7
+)
 
 require (
 	github.com/bytedance/sonic v1.12.2 // indirect

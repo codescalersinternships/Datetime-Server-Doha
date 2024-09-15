@@ -1,16 +1,27 @@
 package main
 
 import (
-	pkg "github.com/dohaelsawy/codescalers/datetimeserver/pkg/gin"
+	pkgin "github.com/dohaelsawy/codescalers/datetimeserver/pkg/gin"
+	pkgsh "github.com/dohaelsawy/codescalers/datetimeserver/pkg/shutdown"
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
+
+func setupHandler() *gin.Engine {
+	router := gin.Default()
+ 
+	router.GET("/datetime", pkgin.DateTime)
+
+	return router
+ }
 
 func main() {
 
-	r := gin.Default()
+	server := http.Server{
+		Addr: ":8080",
+		Handler: setupHandler(),
+	}
 
-	r.GET("/datetime",pkg.DateTime)
-
-	r.Run("localhost:8080")
+	pkgsh.ShutDown(&server)
 
 }

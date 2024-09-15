@@ -16,3 +16,6 @@ func DateTime(c *gin.Context){
 	
 	c.Status(http.StatusOK)
 }
+
+
+

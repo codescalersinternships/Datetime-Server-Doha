@@ -12,12 +12,10 @@ import (
 	"github.com/go-playground/assert/v2"
 )
 
-
-func SetUpRouter() *gin.Engine{
-    router := gin.Default()
-    return router
+func SetUpRouter() *gin.Engine {
+	router := gin.Default()
+	return router
 }
-
 
 func TestServer(t *testing.T) {
 
@@ -30,7 +28,7 @@ func TestServer(t *testing.T) {
 	}{
 		{
 			description: "valid request",
-			status:      200 ,
+			status:      200,
 			path:        "/datetime",
 			method:      "GET",
 			expect:      time.Now().Format(time.UnixDate),
@@ -52,7 +50,7 @@ func TestServer(t *testing.T) {
 			w := httptest.NewRecorder()
 			r.ServeHTTP(w, req)
 
-			assert.Equal(t,test.expect , w.Body.String())
+			assert.Equal(t, test.expect, w.Body.String())
 			assert.Equal(t, test.status, w.Code)
 		})
 	}

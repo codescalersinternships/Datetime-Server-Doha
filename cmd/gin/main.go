@@ -9,6 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// setup gin engin and call datetime handeler
 func setupHandler() *gin.Engine {
 	router := gin.Default()
 
@@ -23,6 +24,7 @@ func main() {
 		Handler: setupHandler(),
 	}
 
+	// goroutines to make server running while shutdown function wating to inturrupt signal
 	go func() {
 		log.Printf("Server listening on %s\n", server.Addr)
 		if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
@@ -30,6 +32,7 @@ func main() {
 		}
 	}()
 
+	// shuts the server gracefully
 	pkgsh.ShutDown(&server)
 
 }

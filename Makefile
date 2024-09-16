@@ -11,3 +11,19 @@ format:
 
 test:
 	go test -v ./...
+
+
+build-gin-image:
+	docker build . -f Dockerfile.gin -t doha/gin
+
+build-http-image:
+	docker build . -f Dockerfile.http -t doha/http
+
+build-gin-container:
+	docker run -p 8080:8080 --name gincontainer doha/gin
+
+build-http-container:
+	docker run -p 8090:8090 --name httpcontainer doha/http
+
+
+

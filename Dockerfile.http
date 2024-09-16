@@ -12,4 +12,4 @@ RUN go build -o ./http ./cmd/net-http/main.go
 
 EXPOSE 8090
 
-CMD ["./main"]
+CMD ["./http"]

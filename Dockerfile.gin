@@ -10,6 +10,12 @@ COPY . .
 
 RUN go build -o ./gin ./cmd/gin/main.go
 
+FROM scratch
+
+WORKDIR /app
+
+COPY --from=build /app/gin ./gin 
+
 EXPOSE 8080
 
 CMD ["./gin"]

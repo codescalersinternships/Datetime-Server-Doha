@@ -10,6 +10,12 @@ COPY . .
 
 RUN go build -o ./http ./cmd/net-http/main.go
 
+FROM scratch
+
+WORKDIR /app
+
+COPY --from=build /app/http ./http
+
 EXPOSE 8090
 
 CMD ["./http"]

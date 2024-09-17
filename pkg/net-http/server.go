@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func DateTime(w http.ResponseWriter, r *http.Request) {
+func DateTimeHandler(w http.ResponseWriter, r *http.Request) {
 	// returns if the method wasn't get
 	if r.Method != "GET" {
 		w.WriteHeader(http.StatusMethodNotAllowed)

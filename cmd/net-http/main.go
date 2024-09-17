@@ -11,7 +11,7 @@ import (
 func main() {
 	server := http.Server{
 		Addr:    ":8090",
-		Handler: http.HandlerFunc(pkghttp.DateTime),
+		Handler: http.HandlerFunc(pkghttp.DateTimeHandler),
 	}
 
 	// goroutines to make server running while shutdown function wating to inturrupt signal

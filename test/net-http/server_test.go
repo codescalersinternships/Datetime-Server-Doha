@@ -44,7 +44,7 @@ func TestServer(t *testing.T) {
 			}
 			response := httptest.NewRecorder()
 
-			pkg.DateTime(response, request)
+			pkg.DateTimeHandler(response, request)
 
 			assert.Equal(t, test.expect, response.Body.String())
 			assert.Equal(t, test.status, response.Result().Status)

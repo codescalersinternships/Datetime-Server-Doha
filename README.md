@@ -9,7 +9,7 @@ Create a basic HTTP server that returns the current date and time.
 ## Installation 
 - 1. Clone project
 ```golang
-   https://github.com/codescalersinternships/Datetime-Server-Doha.git
+   git clone https://github.com/codescalersinternships/Datetime-Server-Doha.git
 ```
 - 2. Run server by 2 ways :
   - docker compose

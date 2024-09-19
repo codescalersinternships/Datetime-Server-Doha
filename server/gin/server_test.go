@@ -1,4 +1,4 @@
-package test
+package server
 
 import (
 	"net/http"
@@ -7,7 +7,6 @@ import (
 	"testing"
 	"time"
 
-	pkg "github.com/dohaelsawy/codescalers/datetimeserver/pkg/gin"
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/assert/v2"
 )
@@ -45,7 +44,7 @@ func TestServer(t *testing.T) {
 	for _, test := range testcase {
 		t.Run(test.description, func(t *testing.T) {
 			r := SetUpRouter()
-			r.GET(test.path, pkg.DateTime)
+			r.GET(test.path, DateTimeHandler)
 			req, _ := http.NewRequest(test.method, test.path, nil)
 			w := httptest.NewRecorder()
 			r.ServeHTTP(w, req)

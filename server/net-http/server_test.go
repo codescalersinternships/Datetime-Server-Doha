@@ -1,4 +1,4 @@
-package test
+package server
 
 import (
 	"net/http"
@@ -7,7 +7,6 @@ import (
 	"testing"
 	"time"
 
-	pkg "github.com/dohaelsawy/codescalers/datetimeserver/pkg/net-http"
 	"github.com/go-playground/assert/v2"
 )
 
@@ -44,7 +43,7 @@ func TestServer(t *testing.T) {
 			}
 			response := httptest.NewRecorder()
 
-			pkg.DateTimeHandler(response, request)
+			DateTimeHandler(response, request)
 
 			assert.Equal(t, test.expect, response.Body.String())
 			assert.Equal(t, test.status, response.Result().Status)

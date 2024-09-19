@@ -3,12 +3,21 @@ package server
 import (
 	"net/http"
 	"net/http/httptest"
+	"reflect"
 
 	"testing"
 	"time"
 
-	"github.com/go-playground/assert/v2"
 )
+
+
+func assertIsEqual(t *testing.T, type1, type2 any) {
+	t.Helper() 
+
+	if !reflect.DeepEqual(type1, type2) {
+		t.Errorf("i expect %v, found %v", type1, type2)
+	}
+}
 
 func TestServer(t *testing.T) {
 
@@ -45,8 +54,8 @@ func TestServer(t *testing.T) {
 
 			DateTimeHandler(response, request)
 
-			assert.Equal(t, test.expect, response.Body.String())
-			assert.Equal(t, test.status, response.Result().Status)
+			assertIsEqual(t, test.expect, response.Body.String())
+			assertIsEqual(t, test.status, response.Result().Status)
 		})
 	}
 

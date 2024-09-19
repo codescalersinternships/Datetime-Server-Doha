@@ -3,17 +3,27 @@ package server
 import (
 	"net/http"
 	"net/http/httptest"
+	"reflect"
 
 	"testing"
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/go-playground/assert/v2"
 )
 
 func SetUpRouter() *gin.Engine {
 	router := gin.Default()
 	return router
+}
+
+
+
+func assertIsEqual(t *testing.T, type1, type2 any) {
+	t.Helper() 
+
+	if !reflect.DeepEqual(type1, type2) {
+		t.Errorf("i expect %v, found %v", type1, type2)
+	}
 }
 
 func TestServer(t *testing.T) {
@@ -49,8 +59,8 @@ func TestServer(t *testing.T) {
 			w := httptest.NewRecorder()
 			r.ServeHTTP(w, req)
 
-			assert.Equal(t, test.expect, w.Body.String())
-			assert.Equal(t, test.status, w.Code)
+			assertIsEqual(t, test.expect, w.Body.String())
+			assertIsEqual(t, test.status, w.Code)
 		})
 	}
 

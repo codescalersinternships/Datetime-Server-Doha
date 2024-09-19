@@ -1,6 +1,6 @@
 module github.com/codescalersinternships/Datetime-Server-Doha
 
-go 1.21.0
+go 1.21
 
 require github.com/gin-gonic/gin v1.10.0
 

@@ -16,10 +16,8 @@ func SetUpRouter() *gin.Engine {
 	return router
 }
 
-
-
 func assertIsEqual(t *testing.T, type1, type2 any) {
-	t.Helper() 
+	t.Helper()
 
 	if !reflect.DeepEqual(type1, type2) {
 		t.Errorf("i expect %v, found %v", type1, type2)

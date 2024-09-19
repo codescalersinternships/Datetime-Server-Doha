@@ -6,7 +6,6 @@ import (
 	"time"
 )
 
-
 // DateTime writes in response with its status code
 func DateTimeHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "GET" {

@@ -10,7 +10,6 @@ import (
 	"time"
 )
 
-
 // ShutDown shuts the Server gracefully
 func ShutDown(server *http.Server) {
 

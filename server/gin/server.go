@@ -8,7 +8,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-
 // DateTime writes the current time in response with its status code
 func DateTimeHandler(c *gin.Context) {
 	if c.Request.Method != "GET" {

@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: http-datetime
+  namespace: doha-namespace
+
+spec:
+  rules:
+    - host: doha.datetimeserver.com
+      http:
+        paths:
+          - path: /datetime
+            pathType: Exact
+            backend:
+              service:
+                name: http-datetime
+                port:
+                  number: 8090

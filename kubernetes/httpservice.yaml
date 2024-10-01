@@ -1,7 +1,8 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: http-service
+  name: http-datetime
+  namespace: doha-namespace
 spec:
   selector:
     app: http-datetime

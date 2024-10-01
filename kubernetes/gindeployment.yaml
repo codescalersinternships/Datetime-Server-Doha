@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gin-datetime
-  namespace: 
+  namespace: doha-namespace
   labels:
     app: gin-datetime
 spec:

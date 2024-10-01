@@ -1,4 +1,4 @@
-linter:
+lint:
 	golangci-lint run ./...
 
 build:

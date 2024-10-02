@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: gin-datetime
+  name: gin-datetime-service
   namespace: doha-namespace
 spec:
   selector:

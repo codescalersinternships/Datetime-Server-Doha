@@ -1,18 +1,19 @@
-apiVersion: networking.k8s.io/v1
+apiVersion: kubernetes.io/ingress.class
 kind: Ingress
 metadata:
-  name: gin-datetime
+  name: gin-ingress
   namespace: doha-namespace
-
+  annotations:
+    kubernetes.io/ingress.class: nginx
 spec:
   rules:
-    - host: doha.datetimeserver.com
+    - host: gindatetimeserver.com
       http:
         paths:
           - path: /datetime
-            pathType: Exact
+            pathType: Prefix
             backend:
               service:
-                name:  gin-datetime
+                name: app-service
                 port:
                   number: 8080

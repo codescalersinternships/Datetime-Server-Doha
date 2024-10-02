@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: http-datetime
+  name: http-datetime-deployment
   namespace: doha-namespace
   labels:
     app: http-datetime

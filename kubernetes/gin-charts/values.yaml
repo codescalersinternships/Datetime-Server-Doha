@@ -1,0 +1,11 @@
+servername: gin-datetime
+
+image: dohaelsawi/datetimeservergin:0.1
+
+ns: doha-namespace
+
+port: 8080
+
+replicas: 2
+
+host: ginserver

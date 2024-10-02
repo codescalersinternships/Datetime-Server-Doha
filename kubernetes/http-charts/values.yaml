@@ -1,0 +1,11 @@
+servername: http-datetime
+
+image: dohaelsawi/datetimeserverhttp:0.1
+
+ns: doha-namespace
+
+port: 8090
+
+replicas: 2
+
+host: httpserver

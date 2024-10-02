@@ -1,0 +1,21 @@
+FROM golang:1.21-alpine AS build
+
+WORKDIR /app
+
+COPY go.mod  go.sum  ./
+
+RUN go mod download
+
+COPY . .
+
+RUN go build -o ./http ./cmd/net-http/main.go
+
+FROM scratch
+
+WORKDIR /app
+
+COPY --from=build /app/http ./http
+
+EXPOSE 8090
+
+CMD ["./http"]
